@@ -1,148 +1,123 @@
-# cordova-plugin-ionic-keyboard
+Keyboard
+======
 
-This plugin has been designed to work seamlessly with `cordova-plugin-ionic-webview`, so make sure you have it installed first:
+The `cordova.plugins.Keyboard` object provides functions to make interacting with the keyboard easier, and fires events to indicate that the keyboard will hide/show.
 
- - https://github.com/ionic-team/cordova-plugin-ionic-webview
- - https://ionicframework.com/docs/wkwebview/
+    cordova plugin add cordova-plugin-ionic-keyboard
 
-## Installation
+Methods
+-------
 
-```
-cordova plugin add cordova-plugin-ionic-keyboard --save
-```
+- cordova.plugins.Keyboard.hideKeyboardAccessoryBar
+- cordova.plugins.Keyboard.close
+- cordova.plugins.Keyboard.disableScroll
+- cordova.plugins.Keyboard.show
 
-## Preferences
+Properties
+--------
 
-### KeyboardResize
+- cordova.plugins.Keyboard.isVisible
 
-> Boolean (true by default)
+Events
+--------
 
-#### Possible values
-- `true`: Showing/hiding the keyboard will trigger some kind of resizing of the app (see KeyboardResizeMode)
-- `false`: Web will not be resized when the keyboard shows up.
+These events are fired on the window.
 
-```xml
-<preference name="KeyboardResize" value="true" />
-```
+- native.keyboardshow
+  * A number `keyboardHeight` is given on the event object, which is the pixel height of the keyboard.
+- native.keyboardhide
 
-### KeyboardResizeMode
+Keyboard.hideKeyboardAccessoryBar
+=================
 
-> String ('native' by default)
+Hide the keyboard accessory bar with the next, previous and done buttons.
 
-#### Possible values
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
 
-- `native`: The whole native webview will be resized when the keyboard shows/hides, it will affect the `vh` relative unit.
-- `body`: Only the html `<body>` element will be resized. Relative units are not affected, because the viewport does not change.
-- `ionic`: Only the html `ion-app` element will be resized. Only for ionic apps.
+Supported Platforms
+-------------------
 
-```xml
-<preference name="KeyboardResizeMode" value="native" />
-```
-
-
-## Methods
-
-### Keyboard.hideFormAccessoryBar
-
-> Hide the keyboard toolbar.
-
-Set to true to hide the additional toolbar that is on top of the keyboard. This toolbar features the Prev, Next, and Done buttons.
-
-```js
-Keyboard.hideFormAccessoryBar(value, successCallback);
-```
-
-##### Quick Example
-
-```js
-Keyboard.hideFormAccessoryBar(true);
-Keyboard.hideFormAccessoryBar(false);
-Keyboard.hideFormAccessoryBar(null, (currentValue) => { console.log(currentValue); });
-```
-
-### Keyboard.hide
-
-> Hide the keyboard
-
-Call this method to hide the keyboard
-
-```js
-Keyboard.hide();
-```
+- iOS
 
 
-### Keyboard.show
+Keyboard.close
+=================
 
-> Show the keyboard
+Close the keyboard if it is open.
 
-Call this method to show the keyboard.
+    cordova.plugins.Keyboard.close();
 
-```js
-Keyboard.show();
-```
+Supported Platforms
+-------------------
 
-## Properties
+- iOS, Android, Blackberry 10, Windows 
 
-### Keyboard.isVisible
 
-> Determine if the keyboard is visible.
+Keyboard.disableScroll
+=================
 
-Read this property to determine if the keyboard is visible.
+Disable native scrolling, useful if you are using JavaScript to scroll
 
-```js
-if (Keyboard.isVisible) {
-    // do something
-}
-```
+    cordova.plugins.Keyboard.disableScroll(true);
+    cordova.plugins.Keyboard.disableScroll(false);
 
-## Events
+Supported Platforms
+-------------------
 
-### keyboardDidHide
+- iOS, Windows
 
-> This event is fired when the keyboard is fully closed.
+Keyboard.show
+=================
 
-Attach handler to this event to be able to receive notification when keyboard is closed.
+Force keyboard to be shown. This typically helps if autofocus on a text element does not pop up the keyboard automatically
 
-```js
-window.addEventListener('keyboardDidHide', () => {
-    // Describe your logic which will be run each time keyboard is closed.
-});
-```
+    cordova.plugins.Keyboard.show();
 
-### keyboardDidShow
+Supported Platforms
 
-> This event is fired when the keyboard is fully open.
+- Android, Blackberry 10, Windows 
 
-Attach handler to this event to be able to receive notification when keyboard is opened.
+native.keyboardshow
+=================
 
-```js
-window.addEventListener('keyboardDidShow', (event) => {
-    // Describe your logic which will be run each time when keyboard is about to be shown.
-    console.log(event.keyboardHeight);
-});
-```
+This event fires when the keyboard will be shown
 
-### keyboardWillShow
+    window.addEventListener('native.keyboardshow', keyboardShowHandler);
 
-> This event fires before keyboard will be shown.
+    function keyboardShowHandler(e){
+        alert('Keyboard height is: ' + e.keyboardHeight);
+    }
 
-Attach handler to this event to be able to receive notification when keyboard is about to be shown on the screen.
+Properties
+-----------
 
-```js
-window.addEventListener('keyboardWillShow', (event) => {
-    // Describe your logic which will be run each time when keyboard is about to be shown.
-    console.log(event.keyboardHeight);
-});
-```
+keyboardHeight: the height of the keyboard in pixels
 
-### keyboardWillHide
 
-> This event is fired when the keyboard is fully closed.
+Supported Platforms
+-------------------
 
-Attach handler to this event to be able to receive notification when keyboard is about to be closed.
+- iOS, Android, Blackberry 10, Windows
 
-```js
-window.addEventListener('keyboardWillHide', () => {
-    // Describe your logic which will be run each time when keyboard is about to be closed.
-});
-```
+
+native.keyboardhide
+=================
+
+This event fires when the keyboard will hide
+
+    window.addEventListener('native.keyboardhide', keyboardHideHandler);
+
+    function keyboardHideHandler(e){
+        alert('Goodnight, sweet prince');
+    }
+
+Properties
+-----------
+
+None
+
+Supported Platforms
+-------------------
+
+- iOS, Android, Blackberry 10, Windows

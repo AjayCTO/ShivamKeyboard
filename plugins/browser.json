@@ -7,11 +7,21 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-ionic-keyboard": {
-            "PACKAGE_NAME": "com.shivamitcs.shivamKeyboard"
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-native-keyboard": {
+            "LICENSE": "TRIAL",
+            "PACKAGE_NAME": "io.cordova.hellocordova"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.shivamitcs.shivamKeyboard"
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-ionic-keyboard": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
     "dependent_plugins": {}

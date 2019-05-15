@@ -1,18 +1,45 @@
 {
-  "cordova-plugin-ionic-keyboard": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-ionic-keyboard"
+    "cordova-plugin-native-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-native-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {
+            "LICENSE": "TRIAL",
+            "LIC_ANDROID": "TRIAL"
+        }
     },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-whitelist": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-whitelist@1"
+    "cordova-plugin-console": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-console@^1.1.0"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
-    "is_top_level": true,
-    "variables": {}
-  }
+    "cordova-plugin-actionsheet": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-actionsheet"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-ionic-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-ionic-keyboard@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
 }
