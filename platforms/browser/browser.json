@@ -1,0 +1,23 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-ionic-keyboard": {
+            "PACKAGE_NAME": "com.shivamitcs.shivamKeyboard"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.shivamitcs.shivamKeyboard"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [],
+    "plugin_metadata": {
+        "cordova-plugin-ionic-keyboard": "2.1.3",
+        "cordova-plugin-whitelist": "1.3.3"
+    }
+}
